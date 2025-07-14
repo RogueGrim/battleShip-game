@@ -37,13 +37,14 @@ class gameBoard{
 
         const cell = this.mat[x][y]
         if(cell.isHit){
-            return 'Already hit'
+            return 'Already Hit'
         }
         cell.isHit = true
 
         if(cell.ship){
             cell.ship.hit()
             cell.ship.checkSunk()
+            return 'Hit'
         }
         return 'Miss'
     }
