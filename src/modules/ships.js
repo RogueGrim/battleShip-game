@@ -1,4 +1,4 @@
-class Ship{
+class ship{
     constructor(length){
         this.length = length
         this.hits = 0
@@ -14,4 +14,4 @@ class Ship{
     }
 }
 
-export {Ship}
+export {ship}

@@ -1,5 +1,5 @@
 import { gameBoard } from "../modules/gameboard";
-import { Ship } from "../modules/ships";
+import { ship } from "../modules/ships";
 
 test("inBound Test", ()=>{
     let game = new gameBoard
@@ -7,7 +7,7 @@ test("inBound Test", ()=>{
 })
 
 test('Ship placement', ()=>{
-    let boat = new Ship(2)
+    let boat = new ship(2)
     let game = new gameBoard
     expect(()=>{game.placeShip(boat,10,10,true)}).toThrow('Ship out of Bound')
     game.placeShip(boat,0,2,true)
@@ -22,7 +22,7 @@ test('Ship placement', ()=>{
 })
 
 test('Ship Array', ()=>{
-    let boat = new Ship(2)
+    let boat = new ship(2)
     let game = new gameBoard
     game.placeShip(boat,0,2,true)
     expect(game.ships).toContainEqual({length:2,hits:0,isSunk:false})
@@ -30,7 +30,7 @@ test('Ship Array', ()=>{
 
 test('Attack ships', ()=>{
     let game = new gameBoard
-    let boat = new Ship(2)
+    let boat = new ship(2)
     game.placeShip(boat,0,2,true)
     expect(game.recieveAttack(0,0)).toBe('Miss')
     expect(game.recieveAttack(0,2)).toBe('Hit')
@@ -42,7 +42,7 @@ test('Attack ships', ()=>{
 
 test('All Sunk',()=>{
     let game = new gameBoard
-    let boat = new Ship(1)
+    let boat = new ship(1)
     game.placeShip(boat,0,2,true)
     game.recieveAttack(0,2)
     expect(game.allShipSunk()).toBe(true)

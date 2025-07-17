@@ -1,5 +1,3 @@
-import { Ship } from "./ships"
-
 class gameBoard{
     constructor(len = 10){
         this.len = len
