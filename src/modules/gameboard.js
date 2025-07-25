@@ -1,3 +1,5 @@
+import { ship } from "./ships.js"
+
 class gameBoard{
     //makes a 2D array and fills it with info
     constructor(len = 10){
@@ -30,6 +32,30 @@ class gameBoard{
             }
         }
         this.ships.push(ship)   //pushes ship into the Ships array
+    }
+    //randomly places ships
+    randomPlacement(){
+        const toPlace = [
+            new ship('destroyer',2),
+            new ship('submarine',3),
+            new ship('battleship',4),
+            new ship('carrier',5)
+        ]
+
+        toPlace.forEach(ship=>{
+            let plased = false
+            while(!plased){
+                const x = Math.floor(Math.random()*10)
+                const y = Math.floor(Math.random()*10)
+
+                try{
+                    this.placeShip(ship,x,y,ship.isHorizontal)
+                    plased = true
+                }catch(Error){
+                    
+                }
+            }
+        })
     }
     //recives attack data from the other player
     recieveAttack(x,y){

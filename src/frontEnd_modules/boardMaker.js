@@ -13,26 +13,28 @@ function createBoard(name){
     board.appendChild(emptyArea)
 
     //loop for attaching the numbers to each cell
-    for(let i = 1; i <=10; i++){
+    letters.forEach(element =>{
         const outerLabel = document.createElement('div')
-        outerLabel.innerHTML = i
+        outerLabel.innerHTML = element
         outerLabel.classList.add('label')
         board.appendChild(outerLabel)
-    }
-
+    })
+    
     //loop over the letter array and creating the divs
-    letters.forEach(element => {
+    for(let i = 1; i <= 10;i++){
         const label = document.createElement('div')
-        label.innerHTML = element
+        label.innerHTML = i
         label.classList.add('label')
         board.appendChild(label)
-        for(let j = 1; j <= 10; j++){
+        for(let j = 0; j < 10; j++){
             const cell = document.createElement('div')
             cell.classList.add('cell')
-            cell.setAttribute('value',`${element}${j}`)
+            cell.dataset.x = i - 1 //row index
+            cell.dataset.y = j //column index
             board.appendChild(cell)
         }
-    });
+    }
+
     container.appendChild(board)
 
 }
