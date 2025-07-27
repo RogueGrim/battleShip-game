@@ -18,6 +18,7 @@ class gameBoard{
     }
     //used to place ships
     placeShip(ship,x,y,isHorizontal){
+        const positions = []    //array to hold valid coordinates for ship
 
         for(let i = 0; i < ship.length; i++){
             const nx = isHorizontal ? x : x+i 
@@ -28,9 +29,14 @@ class gameBoard{
             }else if(this.mat[nx][ny].ship){
                 throw new Error('Space Occupied')
             }else{
-                this.mat[nx][ny].ship = ship
+                positions.push([nx,ny])
             }
+            
         }
+        positions.forEach(([nx,ny])=>{
+            this.mat[nx][ny].ship = ship //placement of ship after validating all coordinates
+        })
+
         this.ships.push(ship)   //pushes ship into the Ships array
     }
     //randomly places ships
@@ -43,14 +49,14 @@ class gameBoard{
         ]
 
         toPlace.forEach(ship=>{
-            let plased = false
-            while(!plased){
+            let placed = false
+            while(!placed){
                 const x = Math.floor(Math.random()*10)
                 const y = Math.floor(Math.random()*10)
-
+                
                 try{
                     this.placeShip(ship,x,y,ship.isHorizontal)
-                    plased = true
+                    placed = true
                 }catch(Error){
                     
                 }

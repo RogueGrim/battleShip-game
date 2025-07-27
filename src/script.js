@@ -1,11 +1,13 @@
 import { createBoard } from "./frontEnd_modules/boardMaker.js"
+import { gameBoard } from "./modules/gameboard.js"
+import { checkHit } from "./frontEnd_modules/hitDetector.js"
 import { renderShips } from "./frontEnd_modules/shipRender.js"
-import { checkType } from "./frontEnd_modules/typeSelector.js"
 
 createBoard('player')
 
-document.getElementsByName('type').forEach((e)=>{
-    e.addEventListener('click',checkType)
-})
+const board = new gameBoard
+board.randomPlacement()
+renderShips(board)
+checkHit(board)
 
-renderShips(0,0)
+

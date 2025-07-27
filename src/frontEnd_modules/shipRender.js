@@ -1,6 +1,17 @@
-function renderShips(x,y){
-    const container = document.querySelector(`[data-x='${x}'][data-y='${y}']`)
-    container.classList.add('ship')
+
+//function to render ships on the board
+function renderShips(board){
+    for(let i=0;i<10;i++){
+        for(let j=0;j<10;j++){
+            if(board.mat[i][j].ship){
+                const container = document.querySelector(`[data-x='${i}'][data-y='${j}']`)
+                container.classList.add('ship')
+                container.dataset.name = board.mat[i][j].ship.name
+            }
+        }
+    }
+    
+     
 }
 
 export { renderShips }
