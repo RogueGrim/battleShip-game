@@ -14,4 +14,12 @@ function renderShips(board){
      
 }
 
-export { renderShips }
+//function to deRender Ships
+function removeShips(){
+    const container = document.querySelectorAll('.cell')
+    container.forEach(cell=>{
+        cell.classList.remove('ship')
+    })
+}
+
+export { renderShips,removeShips}

@@ -39,6 +39,15 @@ class gameBoard{
 
         this.ships.push(ship)   //pushes ship into the Ships array
     }
+    //clear the gameboard
+    clearBoard(){
+        for(let i = 0;i < this.len; i++){
+            for(let j = 0; j < this.len; j++){
+                this.mat[i][j] = {ship: null,isHit: false}
+            }
+        }
+        this.ships = [];
+    }
     //randomly places ships
     randomPlacement(){
         const toPlace = [
@@ -53,9 +62,10 @@ class gameBoard{
             while(!placed){
                 const x = Math.floor(Math.random()*10)
                 const y = Math.floor(Math.random()*10)
+                const isHorizontal = Math.random() < 0.5
                 
                 try{
-                    this.placeShip(ship,x,y,ship.isHorizontal)
+                    this.placeShip(ship,x,y,isHorizontal)
                     placed = true
                 }catch(Error){
                     

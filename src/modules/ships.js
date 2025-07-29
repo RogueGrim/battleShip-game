@@ -4,7 +4,6 @@ class ship{
         this.length = length
         this.hits = 0
         this.isSunk = false
-        this.isHorizontal = true
     }
     hit(){
         this.hits++
@@ -12,11 +11,6 @@ class ship{
     checkSunk(){
         if(this.length == this.hits){
             this.isSunk = true
-        }
-    }
-    changeOrientation(){
-        if(this.isHorizontal == true){
-            this.isHorizontal = false
         }
     }
 }
