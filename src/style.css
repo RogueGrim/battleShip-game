@@ -35,7 +35,7 @@
     padding: 0;
 }
 
-.cell:hover{
+#player2 > .cell:hover{
     background-color: lightblue;
 }
 

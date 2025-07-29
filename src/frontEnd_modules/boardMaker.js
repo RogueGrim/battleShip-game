@@ -5,7 +5,7 @@ function createBoard(name){
 
     const board = document.createElement('div')
     board.classList.add('board')
-    board.setAttribute('name',name)
+    board.id = name
 
     let letters = ['A','B','C','D','E','F','G','H','I','J'] //array to loop over letters for each row
 

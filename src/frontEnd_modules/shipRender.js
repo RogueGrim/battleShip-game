@@ -19,6 +19,8 @@ function removeShips(){
     const container = document.querySelectorAll('.cell')
     container.forEach(cell=>{
         cell.classList.remove('ship')
+        cell.classList.remove('hit')
+        cell.classList.remove('shipHit')
     })
 }
 
