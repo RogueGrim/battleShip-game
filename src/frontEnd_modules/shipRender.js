@@ -10,7 +10,6 @@ function renderShips(board){
             }
         }
     }
-    
      
 }
 
