@@ -1,12 +1,13 @@
 
 //function to render ships on the board
-function renderShips(board){
+function renderShips(name,board){
     for(let i=0;i<10;i++){
         for(let j=0;j<10;j++){
             if(board.mat[i][j].ship){
-                const container = document.querySelector(`[data-x='${i}'][data-y='${j}']`)
-                container.classList.add('ship')
-                container.dataset.name = board.mat[i][j].ship.name
+                const container = document.getElementById(name)
+                const cell = container.querySelector(`[data-x='${i}'][data-y='${j}']`)
+                cell.classList.add('ship')
+                cell.dataset.name = board.mat[i][j].ship.name
             }
         }
     }
