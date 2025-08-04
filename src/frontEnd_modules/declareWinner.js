@@ -1,16 +1,21 @@
+//fucntion to create a new div that shows the winner
 function declareWinner(board){
-    const container = document.querySelector('.container')
+    const container = document.querySelector('.container') 
     const popUp = document.createElement('div')
+    const text = document.createElement('p')
     popUp.classList.add('popUp')
-
-    if(board.allShipSunk()){
-        popUp.innerText = 'PLayer 2 Wins!!!'
+    
+    //check for player1 ship status
+    if(board.allShipSunk()){ 
+        text.innerText = 'PLayer 2 Wins!!!'
     }else{
-        popUp.innerText = 'Player 1 Wins!!!'
+        text.innerText = 'Player 1 Wins!!!'
     }
     const playAgain = document.createElement('button')
     playAgain.innerText = 'Play Again?'
-    container. appendChild(playAgain)
+    playAgain.classList.add('playAgain')
+    popUp.appendChild(text)
+    popUp. appendChild(playAgain)
     container.appendChild(popUp)
 }
 

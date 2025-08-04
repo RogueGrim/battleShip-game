@@ -1,5 +1,4 @@
 //for creating a 10x10 board of divs 
-
 function createBoard(name){
     const container = document.querySelector('.container')
 

@@ -17,10 +17,12 @@ function renderShips(name,board){
 //function to deRender Ships
 function removeShips(){
     const container = document.querySelectorAll('.cell')
+    //remove rendered classes on each cell
     container.forEach(cell=>{
         cell.classList.remove('ship')
         cell.classList.remove('hit')
         cell.classList.remove('shipHit')
+        delete cell.dataset.name //delete the ship name field for each cell
     })
 }
 
